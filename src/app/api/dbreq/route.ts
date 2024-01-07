@@ -1,6 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 
-const handler = (req : NextApiRequest, res : NextApiResponse) => {
+const handler = (req , res) => {
     console.log('dbreq:', req);
     console.log('res:', res);
     if (req.method === 'POST') {
@@ -8,7 +7,9 @@ const handler = (req : NextApiRequest, res : NextApiResponse) => {
     } else {
         // Handle any other HTTP method
     }
-    res.status(200).json({});
+
+    return Response.json({ name: 'John Doe' });
+
 }
 
 export const GET = handler;
