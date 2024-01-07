@@ -52,7 +52,7 @@ type JYSGLCItem = {
   order_content: string;
   customer_incharge: string;
   company_incharge: string;
-  created_date: Date;
+  setup_date: Date;
   quotation_number: string;
   remarks: string;
 };
@@ -82,7 +82,7 @@ const columns: ProColumns<JYSGLCItem>[] = [
   },
   {
     title: '立项日期',
-    dataIndex: 'created_date_for_search',
+    dataIndex: 'setup_date_for_search',
     valueType: 'dateRange',
     hideInTable: true,
     initialValue: [firstDayThisYear, today],
@@ -172,7 +172,7 @@ const columns: ProColumns<JYSGLCItem>[] = [
   
   {
     title: '立项日期',
-    dataIndex: 'created_date',
+    dataIndex: 'setup_date',
     valueType: 'date',
     search: false,
     sorter: true,
@@ -250,8 +250,8 @@ request.interceptors.request.use((url, options) => {
 })
 
 request.interceptors.response.use(async (res, options) => {
-  console.log('asdfdsf')
-  let data = await res.clone();
+  console.log('res:', res.body);
+  const data = await res.clone();
   console.log('response',data);
   console.log('options', options);
   return res;

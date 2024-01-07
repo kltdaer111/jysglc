@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model sglcb {
+  project_num       String    @id @db.VarChar(255)
+  progress_num      String?   @db.VarChar(255)
+  customer_name     String?   @db.VarChar(255)
+  work_place        String?   @db.VarChar(255)
+  customer_orderid  String?   @db.VarChar(255)
+  factory_id        String?   @db.VarChar(255)
+  order_date        DateTime? @db.Date
+  order_content     String?   @db.VarChar(255)
+  customer_incharge String?   @db.VarChar(255)
+  company_incharge  String?   @db.VarChar(255)
+  setup_date        DateTime? @db.Date
+  quotation_number  String?   @db.VarChar(255)
+  remarks           String?   @db.VarChar(255)
+  created_at        DateTime? @db.DateTime(0)
+}
